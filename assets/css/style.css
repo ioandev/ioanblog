@@ -1,0 +1,810 @@
+/*
+Theme Name: ioanb7's sys theme
+Theme URI: -
+Author: ioanb7
+Author URI: -
+Description: ioanb7's theme
+Version: 1.0
+*/
+
+
+
+html,
+body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  /*
+  font-family: "Whitney SSm A", "Whitney SSm B", "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  font-family: 'Open Sans Condensed', sans-serif;*/
+
+  background: url("/assets/img/pattern.png");
+}
+
+.site-branding {
+  display: inline-block;
+  margin: 50px 0px 0px 50px;
+}
+
+.site-title {
+  color: white;
+  font-size: 3.5em;
+  text-decoration: none;
+}
+
+.site-description {
+  color: white;
+  margin-top: 5px;
+}
+
+
+* {
+  box-sizing: inherit;
+  transition-property: all;
+  transition-duration: .6s;
+  transition-timing-function: ease;
+}
+
+/** CLEAR FIX **/
+.cf:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.cf {
+  display: inline-block;
+}
+
+/* start commented backslash hack \*/
+* html .cf {
+  height: 1%;
+}
+
+.cf {
+  display: block;
+}
+
+#main-header {
+  background: url("/assets/img/top_background.jpg") no-repeat;
+  background-size: cover;
+  height: 260px;
+
+  position: relative;
+  border-bottom: 10px solid white;
+}
+
+#avatar {
+  background: url("/assets/img/avatar_wide.jpg") no-repeat;
+  height: 195px;
+  width: 343px;
+  position: absolute;
+  right: 122px;
+  bottom: -6px;
+  border: 3px solid white;
+
+
+  bottom: 0px;
+  right: 50px;
+  height: 237px;
+  width: 343px;
+  border-bottom: none;
+}
+
+
+
+
+
+#main-nav a {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 auto 2em;
+  width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%;
+
+
+  text-align: center;
+  float: left;
+  margin-left: 50px;
+
+
+}
+
+#main-nav a:hover {
+  text-decoration: none;
+}
+
+
+#main-nav li {
+  float: left;
+}
+
+#main-nav a {
+  background: darken(#E1332D, 1.5%);
+  font-weight: 100;
+  width: 150px;
+
+}
+
+#main-nav a svg {
+  height: 45px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#main-nav a rect {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-dasharray: 422, 0;
+}
+
+#main-nav a:hover {
+  background: rgba(#E1332D, 0);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#main-nav a:hover rect {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 48;
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#main-nav {
+  padding: 10px 0px 0px 0px;
+  height: 65px;
+  position: absolute;
+  bottom: 0px;
+  right: 50px;
+
+  padding-left: 50px;
+  bottom: 15px;
+  right: 50px;
+  width: 100%;
+  padding-right: 300px;
+}
+
+
+#content {
+  /*height:100%;*/
+  height: auto;
+  border-top: 1px solid #ccc;
+}
+
+#articles {
+  padding-bottom: 50px;
+}
+
+#articles article.post {
+  /*padding:25px;*/
+  /*background-color:white;*/
+  line-height: 20px;
+}
+
+body.home article.post {
+  margin-left: 100px;
+}
+
+body.single article.post {
+  width: 1000px;
+  margin: 0px auto;
+  background-color: none;
+}
+
+
+#main {
+  width: 1000px;
+  margin: 0px auto;
+  background-color: white;
+  padding: 50px;
+  margin-bottom: 50px;
+
+  font-size: 1.25em;
+  line-height: 45px;
+
+  border: 1px solid #ccc;
+}
+
+body.home #main,
+body.single #main,
+body.article #main {
+  padding: 0px;
+  background: none;
+  border: 0px;
+}
+
+
+body.home #main {
+  width: 100%;
+  padding: 0px;
+  border: 0px;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0px;
+  background: none;
+}
+
+
+
+#primary {
+  padding-right: 0px;
+}
+
+body.has-sidebar #primary {
+  padding-right: 300px;
+}
+
+body.home article.post {
+
+  border: 1px solid #ccc;
+  background-color: white;
+  padding: 40px;
+}
+
+body.home article.post .entry-header {
+  margin-bottom: 20px;
+}
+
+
+
+
+body.single article.post .entry-header {
+  background-color: white;
+  margin-bottom: 50px;
+
+  font-size: 5em;
+
+  line-height: 75px;
+  border: 1px solid #ccc;
+  padding: 30px 50px;
+}
+
+body.single article.post .entry-content,
+#comments,
+nav.post-navigation {
+  background-color: white;
+  margin: 0 auto;
+  padding: 75px;
+  border: 1px solid #ccc;
+  font-size: 1.2em;
+}
+
+#comments {
+  line-height: 1.5em;
+}
+
+#comments .comment-list li:first-child {
+  margin-top: 50px;
+  /*children*/
+}
+
+#comments .comment-list>li:first-child {
+  margin-top: 20px;
+  /* first child main */
+}
+
+#comments,
+nav.post-navigation {
+  font-size: 0.8em;
+}
+
+#comments .comment-body img.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+#comments .comment-author.vcard {
+  padding: 25px;
+}
+
+
+#comments .comment {
+  margin-top: 100px;
+}
+
+#comments .comment .children .comment {
+  margin-left: 100px;
+}
+
+#comments textarea {
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+  font-family: 'Roboto';
+  padding: 10px;
+  min-height: 200px;
+  margin-top: 20px;
+}
+
+
+#articles article.post p {
+  margin-bottom: 25px;
+  line-height: 32px;
+  font-weight: 300;
+}
+
+#articles article.post h2,
+.page h1 {
+  font-weight: 800;
+  padding: 20px 5px;
+  font-size: 60px;
+  line-height: 62px;
+}
+
+#articles article.post h2 a {
+  text-decoration: none;
+  color: black;
+}
+
+#articles article.post img {
+  width: 100%;
+  height: auto;
+}
+
+#main-footer {}
+
+#main-footer p {
+  line-height: 60px;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid #ccc;
+}
+
+
+.single-featured-image-header {
+  margin-bottom: 50px;
+}
+
+#comments {}
+
+#respond {
+  padding: 50px 0px;
+}
+
+
+
+#content {
+  /*width:1300px;*/
+  width: 100%;
+
+  /*padding:0px 100px;*/
+  margin: 0 auto;
+  padding: 50px 0px;
+  padding-bottom: 0px;
+}
+
+#comments {
+  margin-top: 50px;
+}
+
+#commentform>input {
+  width: 49.5%;
+  font-size: 2em;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#commentform .comment-form-comment label {
+  display: block;
+}
+
+/*
+body.single article.post {
+  width:1000px;
+}
+
+
+
+body.single article.post .entry-content, #comments, nav.post-navigation {
+  width:1000px;
+}*/
+
+
+.youtube_highlight {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+
+  margin-bottom: 50px;
+}
+
+.youtube_highlight iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.entry-content iframe {
+  width: 100%;
+}
+
+
+#primary {
+  width: 100%;
+}
+
+body.single article.post .entry-title {
+  color: #666;
+  text-shadow: 0px -1px 0px rgb(31, 27, 27);
+}
+
+
+
+#content #articles>.wrap {
+  position: relative;
+}
+
+#primary {}
+
+#secondary {
+  /*float:right;*/
+  width: 318px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+/* one post after another looks fucked up without a margin, and there is no better way to detect it than this: */
+body.home article.post {
+  margin-top: 50px;
+}
+
+body.home #content {
+  padding-top: 0px;
+}
+
+body.home #secondary {
+  /*margin-top:50px;*/
+}
+
+
+body.home article.post {
+  margin-left: 0px;
+  margin-top: 0px !important;
+}
+
+.entry-content ol,
+.entry-content ul {
+  padding-left: 50px;
+  line-height: 1.5em;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  font-family: 'Roboto';
+  font-weight: 300;
+  list-style: inherit;
+}
+
+
+.widget {
+  background-color: white;
+  padding: 30px 20px;
+  margin-left: 20px;
+  /*margin-bottom:30px;*/
+  border-top: 1px solid #ccc;
+  /*width:300px;*/
+}
+
+h2.widget-title {
+  text-transform: none;
+  font-size: 1.25em;
+  margin-bottom: 10px;
+  letter-spacing: normal;
+  font-weight: 300;
+}
+
+.entry-content p {
+  text-align: justify;
+}
+
+.entry-content a {
+  color: #3F51B5;
+  text-decoration: none;
+}
+
+/*
+@media only screen and (min-width:1444px){
+
+    #content {
+      width: 100%;
+    }
+    #primary {
+      width: 77%;
+    }
+}
+@media only screen and (min-width:1800px){
+
+    #content {
+      width: 100%;
+    }
+    #primary {
+
+      width: 83%;
+    }
+}
+
+@media only screen and (max-width:1200px){
+
+    #content {
+      width: 100%;
+    }
+    #primary {
+      width: 100%;
+    }
+    #secondary {
+      display:none;
+    }
+
+    body.home article.post {
+      width:100%;
+      float:none;
+    }
+
+}*/
+
+
+
+/*
+body.home article.post {
+  width:20%;
+}
+@media only screen and (max-width:3000px){
+  body.home article.post {
+    width:25%;
+  }
+}
+@media only screen and (max-width:2400px){
+  body.home article.post {
+    width:33.333%;
+  }
+}
+
+@media only screen and (max-width:1800px){
+  body.home article.post {
+    width:50%;
+  }
+}
+
+@media only screen and (max-width:1300px){
+  body.home article.post {
+    width:100%;
+  }
+
+  #main, #articles article.post {
+    width:100%;
+  }
+
+  #main-nav a{
+    zoom: 0.7;
+  }
+
+
+}
+
+@media only screen and (max-width:1024px){
+  body.home article.post {
+    width:100%;
+  }
+
+  #main-nav a{
+    zoom: 0.5;
+  }
+}
+@media only screen and (max-width:720px){
+  #secondary {
+    width:0px;
+  }
+
+
+
+  #primary {
+    padding-right:0px!important;
+  }
+
+  #main {
+    width:100%;
+  }
+  #main > .post, #main > .page {
+    width:100%;
+  }
+
+  #secondary {
+    width:0px;
+  }
+}
+*/
+
+body.home #main {
+  column-count: 2;
+  column-gap: 0px;
+  column-fill: auto;
+}
+
+@media only screen and (max-width:3300px) {
+
+  body.home #main {
+    column-count: 4;
+  }
+}
+
+@media only screen and (max-width:2600px) {
+  body.home #main {
+    column-count: 3;
+  }
+}
+
+@media only screen and (max-width:1800px) {
+  body.home #main {
+    column-count: 2;
+  }
+}
+
+@media only screen and (max-width:1300px) {
+  body.home #main {
+    column-count: 1;
+  }
+
+
+  #main-nav a {
+    zoom: 0.7;
+  }
+
+
+}
+
+@media only screen and (max-width:1024px) {
+  #main-nav a {
+    zoom: 0.5;
+  }
+}
+
+@media only screen and (max-width:720px) {
+  #secondary {
+    width: 0px;
+  }
+
+
+
+  #primary {
+    padding-right: 0px !important;
+  }
+
+  #main {
+    width: 100%;
+  }
+
+  #main>.post,
+  #main>.page {
+    width: 100%;
+  }
+
+  #secondary {
+    width: 0px;
+  }
+}
+
+
+
+
+
+body.home #articles article.post {
+  width: 100% !important;
+  -webkit-column-break-inside: avoid;
+  width: 100%;
+  margin-top: 2px !important;
+  display: inline-block;
+}
+
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form textarea {
+  font-size: 1.25em;
+  padding: 15px;
+}
+
+
+
+body.archive article.post {
+  margin-bottom: 50px;
+  padding-bottom: 75px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*custom css from body*/
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.wpp-post-title {
+  color: #167ac6;
+  text-decoration: none;
+}
+
+.entry-content ol,
+.entry-content ul {
+  font-size: 1em;
+  line-height: 32px;
+  font-family: 'Roboto', sans-serif;
+}
+
+strong {
+  font-weight: bold;
+}
+
+aside#secondary section:first-child h2 {
+  border-bottom: 1px solid #ddd;
+}
+
+aside#secondary .textwidget p {
+  margin-bottom: 10px;
+  line-height: 25px
+}
+
+body.single article.post .entry-content {
+  padding: 20px;
+  font-size: 0.8em;
+}
+
+body.single article.post .entry-header {
+  background-color: white;
+  margin-bottom: 30px;
+  font-size: 3em;
+  padding: 10px 30px;
+}
+
+@media all and (max-width: 1300px) {
+  body.single #secondary {
+    display: none;
+  }
+}

@@ -1,0 +1,46 @@
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.wpp-post-title {
+  color: #167ac6;
+  text-decoration: none;
+}
+
+.entry-content ol,
+.entry-content ul {
+  font-size: 1em;
+  line-height: 32px;
+  font-family: 'Roboto', sans-serif;
+}
+
+strong {
+  font-weight: bold;
+}
+
+aside#secondary section:first-child h2 {
+  border-bottom: 1px solid #ddd;
+}
+
+aside#secondary .textwidget p {
+  margin-bottom: 10px;
+  line-height: 25px
+}
+
+body.single article.post .entry-content {
+  padding: 20px;
+  font-size: 0.8em;
+}
+
+body.single article.post .entry-header {
+  background-color: white;
+  margin-bottom: 30px;
+  font-size: 3em;
+  padding: 10px 30px;
+}
+
+@media all and (max-width: 1300px) {
+  body.single #secondary {
+    display: none;
+  }
+}
