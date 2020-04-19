@@ -19,11 +19,6 @@ body {
 body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  /*
-  font-family: "Whitney SSm A", "Whitney SSm B", "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
-  font-family: 'Open Sans Condensed', sans-serif;*/
-
-  background: url("/assets/img/pattern.png");
 }
 
 .site-branding {
@@ -42,13 +37,6 @@ body {
   margin-top: 5px;
 }
 
-
-* {
-  box-sizing: inherit;
-  transition-property: all;
-  transition-duration: .6s;
-  transition-timing-function: ease;
-}
 
 /** CLEAR FIX **/
 .cf:after {
@@ -74,7 +62,7 @@ body {
 }
 
 #main-header {
-  background: url("/assets/img/top_background.jpg") no-repeat;
+  /*background: url("/assets/img/top_background.jpg") no-repeat;*/
   background-size: cover;
   height: 260px;
 
@@ -83,7 +71,7 @@ body {
 }
 
 #avatar {
-  background: url("/assets/img/avatar_wide.jpg") no-repeat;
+  /*background: url("/assets/img/avatar_wide.jpg") no-repeat;*/
   height: 195px;
   width: 343px;
   position: absolute;
