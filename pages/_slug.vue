@@ -16,7 +16,7 @@
     },
     head() {
       return {
-        title: 'Some post..',
+        title: this.post.title + ' - ioanb7',
         bodyAttrs: {
           class: 'post-template-default single single-post single-format-standard has-header-image has-sidebar colors-light'
         },
@@ -35,6 +35,7 @@
       //this.$nuxt.$loading.end()
       //debugger
       //this.setLoading(false)
+      this.$nuxt.$store.commit('setPageType', this.post.isPost ? 'post' : 'page')
       this.$nuxt.$store.commit("setLoading", false)
       let timerName = "load"
       console.timeEnd(timerName)

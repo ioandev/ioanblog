@@ -42,14 +42,6 @@ body {
   margin-top: 5px;
 }
 
-
-* {
-  box-sizing: inherit;
-  transition-property: all;
-  transition-duration: .6s;
-  transition-timing-function: ease;
-}
-
 /** CLEAR FIX **/
 .cf:after {
   visibility: hidden;
@@ -74,7 +66,7 @@ body {
 }
 
 #main-header {
-  background: url("/assets/img/top_background.jpg") no-repeat;
+  /*background: url("/assets/img/top_background.jpg") no-repeat;*/
   background-size: cover;
   height: 260px;
 
@@ -99,8 +91,18 @@ body {
   border-bottom: none;
 }
 
+#primary,
+#main-nav,
+.post {
+  box-sizing: border-box
+}
 
-
+body.single .post {
+  /*
+  transition-property: width;
+  transition-duration: 0.1s;
+  transition-timing-function: ease;*/
+}
 
 
 #main-nav a {
@@ -670,7 +672,7 @@ body.home #main {
 
 
   #main-nav a {
-    zoom: 0.7;
+    /*zoom: 0.7;*/
   }
 
 
@@ -678,7 +680,8 @@ body.home #main {
 
 @media only screen and (max-width:1024px) {
   #main-nav a {
-    zoom: 0.5;
+    /*zoom: 0.5;
+    */
   }
 }
 
@@ -714,6 +717,7 @@ body.home #main {
 body.home #articles article.post {
   width: 100% !important;
   -webkit-column-break-inside: avoid;
+  break-inside: avoid;
   width: 100%;
   margin-top: 2px !important;
   display: inline-block;
@@ -807,4 +811,96 @@ body.single article.post .entry-header {
   body.single #secondary {
     display: none;
   }
+}
+
+@media all and (max-width: 1024px) {
+
+  /* Element | http://127.0.0.1:3000/about/ */
+
+  #avatar {
+    position: relative;
+    left: auto;
+    top: 10px;
+    right: auto;
+    bottom: auto;
+    width: 366px;
+    height: 251px;
+    margin: 0 auto;
+  }
+
+  /* Element | http://127.0.0.1:3000/about/ */
+
+  #main-nav {
+    position: relative;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 20px;
+    height: auto;
+  }
+
+  #main-nav a {
+    float: inherit;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Element | http://127.0.0.1:3000/about/ */
+
+  #main-header {
+    height: auto;
+    background: white;
+  }
+
+
+  /* Element | http://127.0.0.1:3000/about/ */
+
+  .site-branding {
+    height: 0px;
+    margin: 0px;
+    width: 0px;
+    float: left;
+  }
+
+  #secondary {
+    visibility: hidden;
+    display: none;
+  }
+
+}
+
+iframe {
+  max-width: 100%;
+}
+
+code {
+  width: 100%;
+  overflow-x: scroll;
+  display: block;
+}
+
+
+
+/* Inline #13 | http://127.0.0.1:3000/ */
+
+body.home #articles article.post {
+  /* width: 100% !important; */
+  float: left;
+}
+
+body.home #main {
+  /* column-gap: 0px; */
+  /* column-fill: auto; */
+}
+
+@media only screen and (max-width: 2600px) {
+  body.home #main {
+    /* column-count: 3; */
+  }
+}
+
+#main-header {
+  overflow-x: hidden;
 }

@@ -1,8 +1,17 @@
 <template>
   <header id="main-header">
+    <!--
     <div class="loading" v-if="loading">
       <p>Loading...</p>
     </div>
+    -->
+    <transition-group name="bk" tag="div" class="bk-img">
+      <div key="img1" v-if="pageType === 'homepage'" class="header-img1"></div>
+      <div key="img2" v-else-if="pageType === 'post'" class="header-img2"></div>
+      <div key="img3" v-else-if="pageType === 'page'" class="header-img3"></div>
+      <div key="img4" v-else class="header-img4"></div>
+    </transition-group>
+
     <div class="site-branding">
       <div class="wrap">
         <div class="site-branding-text">
@@ -13,7 +22,6 @@
     </div><!-- .site-branding -->
     <div id="avatar">&nbsp;</div>
 
-    <!-- todo: use routes -->
     <nav id="main-nav">
       <nuxt-link to="/"><svg>
           <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Home</nuxt-link>
@@ -21,7 +29,6 @@
           <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>About</nuxt-link>
       <nuxt-link to="/contact/"><svg>
           <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Contact</nuxt-link>
-
     </nav><!-- #site-navigation -->
   </header>
 </template>
@@ -32,14 +39,62 @@
   } from 'vuex'
   export default {
     name: 'Header',
+    data() {
+      return {}
+    },
     computed: {
-      ...mapGetters(['loading'])
+      ...mapGetters(['loading', 'pageType'])
     }
   }
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  .bk-img {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    top: 0;
+  }
+
+  @mixin header2 ($imgurl) {
+    background: url($imgurl) center center;
+    background-size: cover;
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .header-img1 {
+    @include header2('/assets/img/header1.jpg');
+  }
+
+  .header-img2 {
+    @include header2('/assets/img/header2.jpg');
+  }
+
+  .header-img3 {
+    @include header2('/assets/img/header3.jpg');
+  }
+
+  .header-img4 {
+    @include header2('/assets/img/header4.jpg');
+  }
+
+  .bk-enter-active,
+  .bk-leave-active {
+    transition: all 0.4s ease;
+  }
+
+  .bk-enter,
+  .bk-leave-to {
+    transform: scale(1.1) translateZ(0);
+    opacity: 0;
+  }
+
+
+
   .loading {
     position: fixed;
     top: 0;

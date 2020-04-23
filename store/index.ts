@@ -6,7 +6,8 @@ import axios from 'axios';
 export const state = () => ({
     wordpress: undefined,
     error: false,
-    loading: false
+    loading: false,
+    pageType: ''
 });
 
 export type RootState = ReturnType<typeof state>
@@ -39,7 +40,11 @@ export const getters: GetterTree<WordpressState, RootState> = {
     loading(state): boolean {
         const { loading } = state;
         return loading
-    }
+    },
+    pageType(state): string {
+        const { pageType } = state;
+        return pageType
+    },
 };
 
 export const mutations: MutationTree<WordpressState> = {
@@ -53,5 +58,8 @@ export const mutations: MutationTree<WordpressState> = {
     },
     setLoading(state, val: boolean) {
       state.loading = val
+    },
+    setPageType(state, val: string) {
+      state.pageType = val
     }
 };

@@ -39,6 +39,7 @@ export interface WordpressState {
     wordpress?: Wordpress;
     error: boolean;
     loading: boolean;
+    pageType: string;
 }
 
 

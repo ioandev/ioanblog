@@ -8,7 +8,8 @@
 
 <script lang="ts">
   import {
-    mapGetters
+    mapGetters,
+    mapMutations
   } from 'vuex'
   import BlogArticle from '~/components/BlogArticle.vue'
   import axios from 'axios'
@@ -24,11 +25,31 @@
         title: 'ioanb7\'s blog',
       }
     },
+    mounted() {
+      //console.log("Mounted!")
+      //debugger; // eslint-disable-line
+      //this.$nuxt.$loading.end()
+      //debugger
+      //this.setLoading(false)
+      this.$nuxt.$store.commit("setLoading", false)
+      let timerName = "load"
+      console.timeEnd(timerName)
+    },
     computed: {
       ...mapGetters(['allPosts']),
       posts() {
         return this.allPosts.filter((post: any) => post.isPost)
       }
+    },
+    async asyncData({
+      store,
+      params,
+      error
+    }) {
+      store.commit('setPageType', 'homepage')
+    },
+    methods: {
+      ...mapMutations(['setLoading', 'setPageType'])
     }
   })
 
