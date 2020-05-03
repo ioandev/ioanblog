@@ -6,6 +6,8 @@
         <p>@ioanb7</p>
       </div><!-- .site-info -->
     </div><!-- .wrap -->
+
+    <cookie-law theme="dark-lime"></cookie-law>
   </footer>
 </template>
 

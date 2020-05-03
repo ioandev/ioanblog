@@ -4,6 +4,9 @@ module.exports = {
     '^~/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
   },
+  "moduleDirectories": [
+    "node_modules"
+  ],
   moduleFileExtensions: [
     'ts',
     'js',
@@ -18,6 +21,9 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/components/**/*.vue',
+    '<rootDir>/components/**/*.js',
     '<rootDir>/pages/**/*.vue'
-  ]
+  ],
+  "coverageReporters": ["lcov", "text-summary"],
+  "snapshotSerializers": ["jest-serializer-html"],
 }

@@ -1,5 +1,5 @@
 <template>
-  <article :class="extraClass + 'status-publish format-standard has-post-thumbnail hentry category-uncategorized'">
+  <article :class="extraClass + ' container p-10'">
     <header class="entry-header">
       <slot name="header" />
     </header>
@@ -9,23 +9,27 @@
           'post-thumbnail': !isOnly,
           'single-featured-image-header': isOnly
           }">
-      <img width="960" height="540" :src="thumbnail"
-        class="attachment-twentyseventeen-featured-image size-twentyseventeen-featured-image wp-post-image"
-        :alt="thumbnailCaption">
+      <img width="960" height="540" :src="thumbnail" class="" :alt="thumbnailCaption">
     </div>
 
-    <div :class="{
+    <div class="leading-8 content_html" :class="{
           content: !isOnly,
           'entry-content': isOnly
           }">
-      <slot name="content" />
+      <translated-content :contentJson="contentJson">
+        <slot name="content" />
+      </translated-content>
     </div>
   </article>
 
 </template>
 
 <script>
+  import TranslatedContent from './TranslatedContent'
   export default {
+    components: {
+      TranslatedContent
+    },
     props: {
       "isOnly": {
         type: Boolean,
@@ -43,11 +47,26 @@
         type: String,
         default: ""
       },
+      "contentJson": {
+        type: Object,
+        default: () => {}
+      },
     },
   }
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+  .content_html {
+    //overflow-x: scroll;
+
+    p {
+      margin: 20px 0px 0px;
+    }
+  }
+
+  .container {
+    background-color: white;
+  }
 
 </style>

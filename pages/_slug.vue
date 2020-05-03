@@ -18,7 +18,7 @@
       return {
         title: this.post.title + ' - ioanb7',
         bodyAttrs: {
-          class: 'post-template-default single single-post single-format-standard has-header-image has-sidebar colors-light'
+          class: ''
         },
       }
     },
@@ -37,8 +37,6 @@
       //this.setLoading(false)
       this.$nuxt.$store.commit('setPageType', this.post.isPost ? 'post' : 'page')
       this.$nuxt.$store.commit("setLoading", false)
-      let timerName = "load"
-      console.timeEnd(timerName)
     },
     async asyncData({
       store,
@@ -46,7 +44,6 @@
       error
     }) {
       try {
-        console.log(store.getters)
         let allResult = store.getters.allPosts
 
         let thisPost = null

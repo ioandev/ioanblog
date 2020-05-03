@@ -12,7 +12,7 @@
       <div key="img4" v-else class="header-img4"></div>
     </transition-group>
 
-    <div class="site-branding">
+    <div class="inline-block mt-4 white">
       <div class="wrap">
         <div class="site-branding-text">
           <h1 class="site-title">ioanb7</h1>

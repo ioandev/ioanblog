@@ -13,26 +13,29 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>
 
 export const actions: ActionTree<WordpressState, RootState> = {
-    async nuxtServerInit({ commit }) {
+    async nuxtServerInit({ commit }, {$sentry}) {
       try{
+        $sentry.captureMessage('New visitor', 'info');
         let response = await axios({
           url: 'http://127.0.0.1:8008/all'})
-        const payload: Wordpress = response && response.data;
+        let payload: Wordpress = response && response.data;
+        //payload.posts = Object.freeze(payload.posts)
         commit('wordpressLoaded', payload);
       }catch(error) {
-        console.log(error);
+        $sentry.captureException(error)
+        console.log("An error has occured getting the posts.");
         commit('wordpressError');
       }
     }
 };
 
 export const getters: GetterTree<WordpressState, RootState> = {
-    allPosts(state): Post[] {
+    allPosts(state): readonly Post[] {
         const { wordpress } = state;
         const allPosts = (wordpress && wordpress.posts) || [];
         return allPosts
     },
-    popularPosts(state): PopularPost[] {
+    popularPosts(state): readonly PopularPost[] {
         const { wordpress } = state;
         const popularPosts = (wordpress && wordpress.popularPosts) || [];
         return popularPosts

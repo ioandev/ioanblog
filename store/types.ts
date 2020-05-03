@@ -1,12 +1,19 @@
 export interface Wordpress {
-    posts:        Post[];
-    popularPosts: PopularPost[];
+    posts:        readonly Post[];
+    popularPosts: readonly PopularPost[];
 }
 
 export interface PopularPost {
     title:     string;
     slug:      string;
     pageviews: string;
+}
+
+export interface ContentJson {
+  name:       string;
+  data:       string;
+  attribs:    Object;
+  children:   ContentJson[];
 }
 
 export interface Post {
@@ -16,6 +23,7 @@ export interface Post {
     thumbnails: Thumbnail[];
     created_at: Date;
     isPost:     Boolean;
+    json:       ContentJson;
 }
 
 export interface Thumbnail {

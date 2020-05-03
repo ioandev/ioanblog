@@ -1,23 +1,23 @@
 <template>
-  <Container extraClass="post type-post" :isOnly="isOnly" :thumbnail="thumbnail" :thumbnailCaption="thumbnailCaption">
+  <Container extraClass="post type-post" :isOnly="isOnly" :thumbnail="thumbnail" :thumbnailCaption="thumbnailCaption"
+    :contentJson="blogArticleJson">
     <template v-slot:header>
-      <h2 v-if="!isOnly" class="entry-title">
+      <h2 v-if="!isOnly" class="text-6xl font-black leading-20">
         <nuxt-link :to="generateUri(blogArticle.slug)">
-          {{convertToTxt(blogArticle.title)}}
+          {{blogArticle.title}}
         </nuxt-link>
       </h2>
-      <h1 v-else class="entry-title">
-        {{convertToTxt(blogArticle.title)}}
+      <h1 v-else class="">
+        {{blogArticle.title}}
       </h1>
     </template>
     <template v-slot:content>
-      <div v-html="blogArticle.html" />
+      <p>Couldn't find any content.</p>
     </template>
   </Container>
 </template>
 
 <script>
-  const htmlToText = require('html-to-text');
   import Container from '~/components/Container.vue'
   export default {
     name: 'blog-article',
@@ -39,12 +39,12 @@
       thumbnailCaption() {
         let thumbnail = this.getThumbnail()
         return thumbnail ? thumbnail.caption : ""
+      },
+      blogArticleJson() {
+        return this.blogArticle.json
       }
     },
     methods: {
-      convertToTxt(html) {
-        return htmlToText.fromString(html)
-      },
       generateUri(uid) {
         return `/${uid}/`
       },
@@ -59,3 +59,7 @@
   }
 
 </script>
+
+<style>
+
+</style>

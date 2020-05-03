@@ -1,19 +1,11 @@
 <template>
   <div>
     <Header />
-    <section>
-      <div id="content">
-        <div id="articles" class="cf">
-          <div class="wrap">
-            <div id="primary" class="content-area">
-              <main id="main" class="site-main cf" role="main">
-                <nuxt />
-              </main>
-              <Sidebar />
-            </div>
-          </div>
-        </div>
-      </div>
+    <section class="flex flex-auto">
+      <main id="main" class="flex-1 min-w-0" role="main">
+        <nuxt />
+      </main>
+      <Sidebar class="flex-sidebar min-w-0" />
     </section>
     <Footer />
   </div>

@@ -1,0 +1,76 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.leading-30 {
+  line-height: 5rem;
+}
+
+pre,
+code {
+  max-width: 100%;
+}
+
+[style*="--aspect-ratio"]> :first-child {
+  width: 100%;
+}
+
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }
+
+  [style*="--aspect-ratio"]> :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+
+
+
+
+.codeParent> :first-child {
+  width: 100%;
+}
+
+@supports (--custom:property) {
+  .codeParent {
+    position: relative;
+  }
+
+  .codeParent::before {
+    content: "";
+    display: block;
+  }
+
+  .codeParent> :first-child {
+    top: 0;
+    left: 0;
+  }
+}
+
+pre,
+code {
+  /*white-space: break-spaces !important;*/
+}
+
+.codeParent .toolbar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.codeParent .toolbar-item button {
+  background-color: black;
+  color: white;
+  padding: 8px 22px;
+  font-size: 0.9em;
+}

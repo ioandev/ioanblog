@@ -1,5 +1,5 @@
-<template lang="html">
-  <div></div>
+<template>
+  <div id="loading-artifact">&nbsp;</div>
 </template>
 
 <script>
@@ -13,8 +13,6 @@
     methods: {
       ...mapMutations(['setLoading']),
       start() {
-        let timerName = "load"
-        console.time(timerName)
         //debugger; // eslint-disable-line
         //this.loading = true
         this.setLoading(true)
