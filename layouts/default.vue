@@ -40,7 +40,7 @@
     },
     head() {
       return {
-        title: 'ioanb7\'s blog',
+        title: 'ioan\'s blog',
       }
     },
     data() {

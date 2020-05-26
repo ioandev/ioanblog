@@ -16,7 +16,7 @@
     },
     head() {
       return {
-        title: this.post.title + ' - ioanb7',
+        title: this.post.title + ' - ioan',
         bodyAttrs: {
           class: 'page'
         },

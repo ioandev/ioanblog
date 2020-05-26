@@ -23,7 +23,7 @@
     },
     head() {
       return {
-        title: 'ioanb7\'s blog popular posts',
+        title: 'ioan\'s blog popular posts',
         bodyAttrs: {
           class: 'popular pages'
         }

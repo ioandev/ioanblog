@@ -1,6 +1,6 @@
-# ioanb7blog
+# ioanblog
 
-> ioanb7&#39;s blog
+> ioan&#39;s blog
 
 ## Build Setup
 
