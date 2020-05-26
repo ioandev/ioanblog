@@ -1,13 +1,13 @@
 <template>
-  <Container extraClass="post type-post" :isOnly="isOnly" :thumbnail="thumbnail" :thumbnailCaption="thumbnailCaption"
+  <Container :isOnly="isOnly" :thumbnail="thumbnail" :thumbnailCaption="thumbnailCaption"
     :contentJson="blogArticleJson">
     <template v-slot:header>
-      <h2 v-if="!isOnly" class="text-6xl font-black leading-20">
+      <h2 v-if="!isOnly" class="text-6xl font-black leading-15">
         <nuxt-link :to="generateUri(blogArticle.slug)">
           {{blogArticle.title}}
         </nuxt-link>
       </h2>
-      <h1 v-else class="">
+      <h1 v-else class="text-6xl font-black leading-15">
         {{blogArticle.title}}
       </h1>
     </template>

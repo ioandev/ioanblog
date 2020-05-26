@@ -91,6 +91,13 @@ function renderMy(h, obj) {
   }
 
   let attrs = getAttrs(obj.attribs)
+  if (obj.name == "main") {
+    let newClasses = " font-light leading-9 "
+    if(attrs.class == undefined) {
+      attrs.class = ""
+    }
+    attrs.class += newClasses
+  }
   let objName = getObjName(obj.name)
   const root = h(objName, {
     attrs

@@ -75,6 +75,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/sentry',
+    'nuxt-material-design-icons'
   ],
 
   sentry: {
@@ -129,5 +130,10 @@ module.exports = {
 
   generate: {
     fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
+  },
+
+  server: {
+    port: 12345,
+    host: '0.0.0.0'
   }
 }

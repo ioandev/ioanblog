@@ -18,7 +18,7 @@
       return {
         title: this.post.title + ' - ioanb7',
         bodyAttrs: {
-          class: ''
+          class: 'page'
         },
       }
     },

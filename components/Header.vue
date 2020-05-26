@@ -12,10 +12,10 @@
       <div key="img4" v-else class="header-img4"></div>
     </transition-group>
 
-    <div class="inline-block mt-4 white">
+    <div class="inline-block absolute p-12 pt-4 mt-4 text-white">
       <div class="wrap">
         <div class="site-branding-text">
-          <h1 class="site-title">ioanb7</h1>
+          <h1 class="site-title text-6xl tracking-tighter font-light -mb-4">ioanb7</h1>
           <p class="site-description">ioan biticu&#039;s website</p>
         </div><!-- .site-branding-text -->
       </div><!-- .wrap -->
@@ -50,6 +50,12 @@
 </script>
 
 <style scoped lang="scss">
+  #main-header {
+    height: 260px;
+    overflow: hidden;
+    position: relative;
+  }
+
   .bk-img {
     position: absolute;
     width: 100vw;

@@ -37,6 +37,9 @@
     head() {
       return {
         title: 'ioanb7\'s blog',
+        bodyAttrs: {
+          class: 'homepage'
+        }
       }
     },
     mounted() {
@@ -68,6 +71,7 @@
 </script>
 
 <style lang="css">
+  body,
   .masonry-column,
   #secondary {
     /*
@@ -79,9 +83,16 @@
     padding-left: 3px;
   }
 
+  body {
+    padding-left: 0px;
+  }
+
+  .masonry-column:first-of-type {
+    padding-left: 0px;
+  }
+
   #secondary>section {
     background-color: white;
-    padding-left: 10px;
   }
 
 </style>

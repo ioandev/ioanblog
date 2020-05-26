@@ -1,9 +1,11 @@
 <template>
-  <footer id="main-footer" role="contentinfo">
+  <footer id="main-footer" class="bg-white font-light text-xl p-4" role="contentinfo">
     <div class="wrap">
 
       <div class="site-info">
-        <p>@ioanb7</p>
+        <p class="text-center">@ioanb7 <span>Power by nuxtjs, vue, tailwind, express and <a
+              href="https://github.com/ioanb7/ioanb7blog/blob/master/package.json" target="_blank" class="underline">
+              other</a> cool tech.</span> </p>
       </div><!-- .site-info -->
     </div><!-- .wrap -->
 

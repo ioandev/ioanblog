@@ -1,5 +1,5 @@
 <template>
-  <div id="loading-artifact">&nbsp;</div>
+  <div id="loading-artifact" class="hidden">&nbsp;</div>
 </template>
 
 <script>
@@ -26,3 +26,8 @@
   }
 
 </script>
+
+<style lang="scss">
+  .loading-artifact {}
+
+</style>
