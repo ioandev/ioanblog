@@ -16,7 +16,7 @@
       <div class="inline-block absolute p-12 pt-4 mt-4 text-white">
         <div class="wrap">
           <div class="site-branding-text">
-            <h1 class="site-title text-6xl tracking-tighter font-light -mb-4">ioanb7</h1>
+            <h1 class="site-title text-6xl tracking-tighter font-light -mb-4">ioan</h1>
             <p class="site-description">ioan biticu&#039;s website</p>
           </div><!-- .site-branding-text -->
         </div><!-- .wrap -->
