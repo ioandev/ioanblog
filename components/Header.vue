@@ -22,7 +22,7 @@
     </div><!-- .site-branding -->
     <div id="avatar">&nbsp;</div>
 
-    <nav id="main-nav">
+    <nav id="main-nav" class="hidden lg:block">
       <nuxt-link to="/"><svg>
           <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Home</nuxt-link>
       <nuxt-link to="/about/"><svg>

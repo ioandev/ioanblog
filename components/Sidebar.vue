@@ -7,28 +7,24 @@
         <p class="py-2">Check out my youtube channel at /ioanb7.</p>
       </div>
     </section>
-
     <section class="widget popular-posts border-b-1 border-gray-400 px-6 py-8 pb-1">
       <h2 class="text-xl border-b-2 border-gray-300 font-thin">Popular posts</h2>
-      <ul class="">
-        <li v-for="popularPost in popularPosts" :key="popularPost.slug" class="py-2">
-          <nuxt-link :to="'/' + popularPost.slug +  '/'" :title="popularPost.title" class="py-2 hover:underline"
-            target="_self">
-            {{popularPost.title}}</nuxt-link>
-          <span class="post-stats text-sm font-semibold block">{{popularPost.pageviews}} views</span>
-        </li>
-      </ul>
+      <PopularPosts />
     </section>
   </aside>
 </template>
 
 <script>
+  import PopularPosts from './PopularPosts'
   import {
     mapGetters
   } from 'vuex'
   import axios from 'axios'
   export default {
     name: 'Sidebar',
+    components: {
+      PopularPosts
+    },
     computed: {
       ...mapGetters(['popularPosts']),
     },

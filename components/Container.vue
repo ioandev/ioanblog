@@ -16,9 +16,10 @@
           content: !isOnly,
           'entry-content': isOnly
           }">
-      <translated-content :contentJson="contentJson">
+      <translated-content :contentJson="contentJson" v-if="contentJson">
         <slot name="content" />
       </translated-content>
+      <slot name="content" v-else />
     </div>
     <div class="spacer"></div>
   </article>
