@@ -6,32 +6,35 @@ import axios from 'axios';
 export const state = () => ({
     wordpress: undefined,
     error: false,
-    loading: false
+    loading: false,
+    pageType: ''
 });
 
 export type RootState = ReturnType<typeof state>
 
 export const actions: ActionTree<WordpressState, RootState> = {
-    async nuxtServerInit({ commit }) {
-      try{
-        let response = await axios({
-          url: 'http://127.0.0.1:8008/all'})
-        const payload: Wordpress = response && response.data;
-        commit('wordpressLoaded', payload);
-      }catch(error) {
-        console.log(error);
-        commit('wordpressError');
-      }
+  async nuxtServerInit({ commit }, {$sentry}) {
+    try{
+      $sentry.captureMessage('New visitor', 'info');
+      let response = await axios({
+        url: process.env.PROXY_URL})
+      let payload: Wordpress = response && response.data;
+      commit('wordpressLoaded', payload);
+    }catch(error) {
+      $sentry.captureException(error)
+      console.log("An error has occured getting the posts.");
+      commit('wordpressError');
     }
+  }
 };
 
 export const getters: GetterTree<WordpressState, RootState> = {
-    allPosts(state): Post[] {
+    allPosts(state): readonly Post[] {
         const { wordpress } = state;
         const allPosts = (wordpress && wordpress.posts) || [];
         return allPosts
     },
-    popularPosts(state): PopularPost[] {
+    popularPosts(state): readonly PopularPost[] {
         const { wordpress } = state;
         const popularPosts = (wordpress && wordpress.popularPosts) || [];
         return popularPosts
@@ -39,7 +42,11 @@ export const getters: GetterTree<WordpressState, RootState> = {
     loading(state): boolean {
         const { loading } = state;
         return loading
-    }
+    },
+    pageType(state): string {
+        const { pageType } = state;
+        return pageType
+    },
 };
 
 export const mutations: MutationTree<WordpressState> = {
@@ -53,5 +60,8 @@ export const mutations: MutationTree<WordpressState> = {
     },
     setLoading(state, val: boolean) {
       state.loading = val
+    },
+    setPageType(state, val: string) {
+      state.pageType = val
     }
 };

@@ -1,32 +1,30 @@
 <template>
-  <aside id="secondary" class="widget-area" role="complementary">
-    <section id="text-2" class="widget widget_text">
-      <h2 class="widget-title">ioanb7</h2>
+  <aside id="secondary" class="widget-area hidden md:block" role="complementary">
+    <section id="text-2" class="widget widget_text border-b-1 border-gray-400 px-6 py-8 pb-1">
+      <h2 class="text-xl border-b-2 border-gray-300 font-thin">ioan</h2>
       <div class="textwidget">
-        <p>I'm Ioan Biticu and I'm a software developer.</p>
-        <p>Check out my youtube channel at /ioanb7.</p>
+        <p class="py-2">I'm Ioan Biticu and I'm a software developer.</p>
+        <p class="py-2">Check out my youtube channel at /ioanb7.</p>
       </div>
     </section>
-    <section id="wpp-2" class="widget popular-posts">
-      <h2 class="widget-title">Popular posts</h2>
-      <ul class="wpp-list">
-        <li v-for="popularPost in popularPosts" :key="popularPost.slug">
-          <nuxt-link :to="'/' + popularPost.slug +  '/'" :title="popularPost.title" class="wpp-post-title"
-            target="_self">{{popularPost.title}}</nuxt-link>
-          <span class="post-stats"><span class="wpp-views">{{popularPost.pageviews}} views</span></span>
-        </li>
-      </ul>
+    <section class="widget popular-posts border-b-1 border-gray-400 px-6 py-8 pb-1">
+      <h2 class="text-xl border-b-2 border-gray-300 font-thin">Popular posts</h2>
+      <PopularPosts />
     </section>
   </aside>
 </template>
 
 <script>
+  import PopularPosts from './PopularPosts'
   import {
     mapGetters
   } from 'vuex'
   import axios from 'axios'
   export default {
     name: 'Sidebar',
+    components: {
+      PopularPosts
+    },
     computed: {
       ...mapGetters(['popularPosts']),
     },
@@ -34,3 +32,10 @@
   }
 
 </script>
+
+<style lang="scss" scoped>
+  a.nuxt-link-exact-active {
+    text-decoration: underline;
+  }
+
+</style>

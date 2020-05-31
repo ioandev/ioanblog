@@ -1,4 +1,4 @@
-
+const path = require('path')
 module.exports = {
   mode: 'universal',
   /*
@@ -12,25 +12,26 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'https://ioanb7.com/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'stylesheet', href: 'http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' },
-      { rel: 'stylesheet', href: 'http://ioanb7.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=4.7' },
-      { rel: 'stylesheet', href: 'http://ioanb7.com/wp-content/plugins/wp-analytify/assets/old/css/admin_bar_styles.css?ver=2.1.1' },
-      { rel: 'stylesheet', href: 'http://ioanb7.com/wp-content/themes/ioanb7_sys/assets/css/reset.css?ver=4.7.4' },
-      { rel: 'stylesheet', href: 'http://ioanb7.com/wp-content/themes/ioanb7_sys/assets/css/original.css?ver=1.0' },
-      { rel: 'stylesheet', href: 'http://ioanb7.com/wp-content/themes/ioanb7_sys/assets/lib/prism/prism.css?ver=4.7.4' },
-      { rel: 'stylesheet', href: 'http://ioanb7.com/wp-content/plugins/wordpress-popular-posts/style/wpp.css?ver=3.3.4' },
     ],
     bodyAttrs: {
-      class: 'home blog logged-in admin-bar no-customize-support hfeed has-header-image has-sidebar colors-light'
+      class: ''
     },
     script: [{
-      src: "https://ioanb7.com/wp-content/themes/ioanb7_sys/assets/lib/prism/prism.js?ver=1.0", defer: true
+      //src: "https://ioanb7.com/wp-content/themes/ioanb7_sys/assets/lib/prism/prism.js?ver=1.0", defer: true
     },],
+  },
+  optimization: {
+    minimize: false,
+  },
+
+  generate: {
+    minify: false
   },
   /*
   ** Customize the loading
@@ -41,22 +42,29 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/css/resetr.css',
-    '@/assets/css/common.css',
-    '@/assets/css/style.css',
+    '@/assets/css/tailwind.css',
   ],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: [{
+    src: '~/plugins/vue-masonry-css',
+    ssr: false
+  }, {
+    src: "~/plugins/prism",
+    ssr: false
+  }, {
+    src: '~/plugins/vue-cookie-law',
+    ssr: false
+  }],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module'
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/tailwindcss',
   ],
   /*
   ** Nuxt.js modules
@@ -65,8 +73,20 @@ module.exports = {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/sentry',
+    'nuxt-material-design-icons'
   ],
+
+  sentry: {
+    dsn: 'https://55f9f691e8ac49f3aae6559f77e70612@o387218.ingest.sentry.io/5222171', // Enter your project's DSN here
+    config: {}, // Additional config
+  },
+
+  purgeCSS: {
+      whitelist: ["html", "body"],
+      whitelistPatternsChildren: [/^token/, /^pre/, /^code/, /^toolbar/],
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -81,6 +101,8 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
+      config.optimization.minimize = false;
+
       // to transform link with <nuxt-link> for the htmlSerializer
       config.resolve.alias['vue'] = 'vue/dist/vue.common'
       if (ctx.isDev) {
@@ -92,10 +114,26 @@ module.exports = {
       preserveLineBreaks: true,
       minifyCSS: false,
       minifyJS: false,
+    },
+
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
+        'postcss-nested': {}
+      }
+    },
+    preset: {
+      stage: 1 // see https://tailwindcss.com/docs/using-with-preprocessors#future-css-featuress
     }
   },
 
   generate: {
     fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
-  }
+  },
+
+  //server: {
+  //  port: 12345,
+  //  host: '0.0.0.0'
+  //}
 }

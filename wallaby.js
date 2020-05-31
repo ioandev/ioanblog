@@ -1,13 +1,17 @@
-module.exports = () => ({
-  autoDetect: true,
+
+  /*
   files: [
-    'src/**/*.js'
+    'components/*.js'
   ],
 
   tests: [
-    'test/**/*spec.js',
-    'src/**/*.test.js'
+    //'/*spec.js',
+    'components/*.test.js'
   ],
+  */
+
+module.exports = () => ({
+  autoDetect: true,
 
   reportConsoleErrorAsError: true,
   lowCoverageThreshold: 99,

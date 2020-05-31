@@ -16,9 +16,9 @@
     },
     head() {
       return {
-        title: 'Some post..',
+        title: this.post.title + ' - ioan',
         bodyAttrs: {
-          class: 'post-template-default single single-post single-format-standard has-header-image has-sidebar colors-light'
+          class: 'page'
         },
       }
     },
@@ -35,9 +35,8 @@
       //this.$nuxt.$loading.end()
       //debugger
       //this.setLoading(false)
+      this.$nuxt.$store.commit('setPageType', this.post.isPost ? 'post' : 'page')
       this.$nuxt.$store.commit("setLoading", false)
-      let timerName = "load"
-      console.timeEnd(timerName)
     },
     async asyncData({
       store,
@@ -45,7 +44,6 @@
       error
     }) {
       try {
-        console.log(store.getters)
         let allResult = store.getters.allPosts
 
         let thisPost = null

@@ -1,0 +1,256 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+html {
+  font-family: "Roboto Condensed", system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    Noto Sans,
+    sans-serif,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
+
+.leading-30 {
+  line-height: 5rem;
+}
+
+.leading-15 {
+  line-height: 4rem;
+}
+
+pre,
+code {
+  max-width: 100%;
+}
+
+[style*="--aspect-ratio"]> :first-child {
+  width: 100%;
+}
+
+@supports (--custom:property) {
+  [style*="--aspect-ratio"] {
+    position: relative;
+  }
+
+  [style*="--aspect-ratio"]::before {
+    content: "";
+    display: block;
+    padding-bottom: calc(100% / (var(--aspect-ratio)));
+  }
+
+  [style*="--aspect-ratio"]> :first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+
+
+
+
+.codeParent> :first-child {
+  width: 100%;
+}
+
+@supports (--custom:property) {
+  .codeParent {
+    position: relative;
+  }
+
+  .codeParent::before {
+    content: "";
+    display: block;
+  }
+
+  .codeParent> :first-child {
+    top: 0;
+    left: 0;
+  }
+}
+
+pre,
+code {
+  /*white-space: break-spaces !important;*/
+}
+
+.codeParent .toolbar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.codeParent .toolbar-item button {
+  background-color: black;
+  color: white;
+  padding: 8px 22px;
+  font-size: 0.9em;
+}
+
+
+
+
+
+#avatar {
+  background: url("/assets/img/avatar_wide.jpg") no-repeat;
+  height: 195px;
+  width: 343px;
+  position: absolute;
+  right: 122px;
+  bottom: -6px;
+  border: 3px solid white;
+
+
+  bottom: 0px;
+  right: 50px;
+  height: 237px;
+  width: 343px;
+  border-bottom: none;
+}
+
+
+
+
+
+#main-nav a {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 auto 2em;
+  width: 160px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%;
+
+
+  text-align: center;
+  float: left;
+  margin-left: 50px;
+
+
+}
+
+#main-nav a:hover {
+  text-decoration: none;
+}
+
+
+#main-nav li {
+  float: left;
+}
+
+#main-nav a {
+  background: darken(#E1332D, 1.5%);
+  font-weight: 100;
+  width: 150px;
+
+}
+
+#main-nav a svg {
+  height: 45px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#main-nav a rect {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-dasharray: 422, 0;
+}
+
+#main-nav a:hover,
+#main-nav a.nuxt-link-exact-active {
+  background: rgba(#E1332D, 0);
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+#main-nav a:hover rect,
+#main-nav a.nuxt-link-exact-active rect {
+  stroke-width: 5;
+  stroke-dasharray: 15, 310;
+  stroke-dashoffset: 48;
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#main-nav a.nuxt-link-exact-active {
+  border-bottom: 2px solid white;
+}
+
+#main-nav a.nuxt-link-exact-active svg {
+  visibility: hidden;
+}
+
+#main-nav {
+  padding: 10px 0px 0px 0px;
+  height: 65px;
+  position: absolute;
+  bottom: 0px;
+  right: 50px;
+
+  padding-left: 50px;
+  bottom: 15px;
+  right: 50px;
+  width: 100%;
+  padding-right: 300px;
+}
+
+
+article.post ol,
+article.post ul {
+  padding: 25px;
+}
+
+article.post ol li {
+  list-style: decimal-leading-zero;
+}
+
+article.post ul li {
+  list-style: upper-roman;
+}
+
+
+.page #main {
+  background-color: white;
+}
+
+.page #main>article {
+  margin: 0 auto;
+  border-top: 0px;
+  border-bottom: 0px;
+}
+
+.page input {
+  border: 1px solid #ccc;
+}
+
+#main a {
+  text-decoration: underline;
+}
+
+#main h1 a,
+#main h2 a {
+  text-decoration: inherit;
+}

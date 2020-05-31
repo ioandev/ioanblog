@@ -1,6 +1,6 @@
-# ioanb7blog
+# ioanblog
 
-> ioanb7&#39;s blog
+> ioan&#39;s blog
 
 ## Build Setup
 
@@ -8,7 +8,7 @@
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
+# serve with hot reload at localhost:4192
 $ npm run dev
 
 # build for production and launch server
