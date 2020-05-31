@@ -43,6 +43,7 @@ module.exports = {
   */
   css: [
     '@/assets/css/tailwind.css',
+    '@/assets/css/style.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -65,6 +66,9 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@nuxtjs/tailwindcss',
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-168116512-1' //process.env.GOOGLE_ANALYTICS_ID
+    }]
   ],
   /*
   ** Nuxt.js modules
@@ -79,13 +83,13 @@ module.exports = {
   ],
 
   sentry: {
-    dsn: 'https://55f9f691e8ac49f3aae6559f77e70612@o387218.ingest.sentry.io/5222171', // Enter your project's DSN here
+    dsn: 'https://55f9f691e8ac49f3aae6559f77e70612@o387218.ingest.sentry.io/5222171',
     config: {}, // Additional config
   },
 
   purgeCSS: {
-      whitelist: ["html", "body"],
-      whitelistPatternsChildren: [/^token/, /^pre/, /^code/, /^toolbar/],
+    whitelist: ["html", "body"],
+    whitelistPatternsChildren: [/^token/, /^pre/, /^code/, /^toolbar/, /^iframe/],
   },
   /*
   ** Axios module configuration

@@ -42,7 +42,7 @@ function renderCode(h, obj) {
 function renderIframe(h, obj, alreadyRendered) {
   return h("div", {
     attrs: {
-      style: "--aspect-ratio: 16/9;"
+      style: "--aspect-ratio: 16/9; min-height:320px;" // TODO: this is a bug in production only.
     }
   }, [alreadyRendered]);
 }
