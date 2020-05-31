@@ -3,7 +3,7 @@
     <div class="wrap">
 
       <div class="site-info">
-        <p class="text-center">@ioanb7 <span>Powered by nuxtjs, vue, tailwind, express and <a
+        <p class="text-center">ioan.blog - <span>powered by nuxtjs, vue, tailwind, express and <a
               href="https://github.com/ioanb7/ioanb7blog/blob/master/package.json" target="_blank" class="underline">
               other</a> cool tech.</span> </p>
       </div><!-- .site-info -->

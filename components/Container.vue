@@ -67,6 +67,10 @@
     }
   }
 
+  .container {
+    border: 1px solid #ccc;
+  }
+
   .container-ioan {
     background-color: white;
   }

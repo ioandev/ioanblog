@@ -12,7 +12,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'https://ioanb7.com/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lora:400,400italic,700,700italic' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
@@ -132,8 +132,8 @@ module.exports = {
     fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
   },
 
-  server: {
-    port: 12345,
-    host: '0.0.0.0'
-  }
+  //server: {
+  //  port: 12345,
+  //  host: '0.0.0.0'
+  //}
 }

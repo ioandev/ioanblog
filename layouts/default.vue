@@ -46,7 +46,7 @@
     data() {
       return {
         'links': [{
-            'name': 'Home',
+            'name': 'Blog',
             'icon': 'home',
             'to': '/'
           },

@@ -13,20 +13,19 @@ export const state = () => ({
 export type RootState = ReturnType<typeof state>
 
 export const actions: ActionTree<WordpressState, RootState> = {
-    async nuxtServerInit({ commit }, {$sentry}) {
-      try{
-        $sentry.captureMessage('New visitor', 'info');
-        let response = await axios({
-          url: 'http://127.0.0.1:8008/all'})
-        let payload: Wordpress = response && response.data;
-        //payload.posts = Object.freeze(payload.posts)
-        commit('wordpressLoaded', payload);
-      }catch(error) {
-        $sentry.captureException(error)
-        console.log("An error has occured getting the posts.");
-        commit('wordpressError');
-      }
+  async nuxtServerInit({ commit }, {$sentry}) {
+    try{
+      $sentry.captureMessage('New visitor', 'info');
+      let response = await axios({
+        url: process.env.PROXY_URL})
+      let payload: Wordpress = response && response.data;
+      commit('wordpressLoaded', payload);
+    }catch(error) {
+      $sentry.captureException(error)
+      console.log("An error has occured getting the posts.");
+      commit('wordpressError');
     }
+  }
 };
 
 export const getters: GetterTree<WordpressState, RootState> = {
