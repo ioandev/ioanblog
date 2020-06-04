@@ -1,3 +1,4 @@
+process.env.NEWSLETTER_URL="http://127.0.0.1:4178"
 module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',

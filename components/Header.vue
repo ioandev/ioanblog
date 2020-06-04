@@ -1,40 +1,45 @@
 <template>
   <div>
-    <header id="main-header" class="hidden md:block">
-      <!--
-    <div class="loading" v-if="loading">
-      <p>Loading...</p>
+    <div class="hidden md:block">
+      <header id="main-header" class="hidden md:block">
+        <!--
+      <div class="loading" v-if="loading">
+        <p>Loading...</p>
+      </div>
+      -->
+        <transition-group name="bk" tag="div" class="bk-img">
+          <div key="img1" v-if="pageType === 'homepage'" class="header-img1"></div>
+          <div key="img2" v-else-if="pageType === 'post'" class="header-img2"></div>
+          <div key="img3" v-else-if="pageType === 'page'" class="header-img3"></div>
+          <div key="img4" v-else class="header-img4"></div>
+        </transition-group>
+
+        <div class="inline-block absolute p-12 pt-4 mt-4 text-white">
+          <div class="wrap">
+            <div class="site-branding-text">
+              <h1 class="site-title text-6xl tracking-tighter font-light -mb-4">ioan</h1>
+              <p class="site-description">ioan biticu&#039;s website</p>
+            </div><!-- .site-branding-text -->
+          </div><!-- .wrap -->
+        </div><!-- .site-branding -->
+        <div id="avatar">&nbsp;</div>
+
+        <nav id="main-nav" class="hidden lg:block">
+          <nuxt-link to="/"><svg>
+              <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Home</nuxt-link>
+          <nuxt-link to="/about"><svg>
+              <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>About</nuxt-link>
+          <nuxt-link to="/contact"><svg>
+              <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Contact</nuxt-link>
+        </nav><!-- #site-navigation -->
+      </header>
+      <header id="alternative-header" class="block md:hidden">
+        <nuxt-link to="/" class="m-4 p-4 inline-block">Home</nuxt-link>
+      </header>
     </div>
-    -->
-      <transition-group name="bk" tag="div" class="bk-img">
-        <div key="img1" v-if="pageType === 'homepage'" class="header-img1"></div>
-        <div key="img2" v-else-if="pageType === 'post'" class="header-img2"></div>
-        <div key="img3" v-else-if="pageType === 'page'" class="header-img3"></div>
-        <div key="img4" v-else class="header-img4"></div>
-      </transition-group>
-
-      <div class="inline-block absolute p-12 pt-4 mt-4 text-white">
-        <div class="wrap">
-          <div class="site-branding-text">
-            <h1 class="site-title text-6xl tracking-tighter font-light -mb-4">ioan</h1>
-            <p class="site-description">ioan biticu&#039;s website</p>
-          </div><!-- .site-branding-text -->
-        </div><!-- .wrap -->
-      </div><!-- .site-branding -->
-      <div id="avatar">&nbsp;</div>
-
-      <nav id="main-nav" class="hidden lg:block">
-        <nuxt-link to="/"><svg>
-            <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Home</nuxt-link>
-        <nuxt-link to="/about/"><svg>
-            <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>About</nuxt-link>
-        <nuxt-link to="/contact/"><svg>
-            <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Contact</nuxt-link>
-      </nav><!-- #site-navigation -->
-    </header>
-    <header id="alternative-header" class="block md:hidden">
-      <nuxt-link to="/" class="m-4 p-4 inline-block">Home</nuxt-link>
-    </header>
+    <div class="bgg-white md:hidden">
+      <h1 class="text-4xl tracking-tighter font-light mt-2 text-center">ioan</h1>
+    </div>
   </div>
 </template>
 

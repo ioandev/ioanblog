@@ -1,8 +1,7 @@
 <template>
   <ul class="">
     <li v-for="popularPost in popularPosts" :key="popularPost.slug" class="py-2">
-      <nuxt-link :to="'/' + popularPost.slug +  '/'" :title="popularPost.title" class="py-2 hover:underline"
-        target="_self">
+      <nuxt-link :to="'/' + popularPost.slug" :title="popularPost.title" class="py-2 hover:underline" target="_self">
         {{popularPost.title}}</nuxt-link>
       <span class="post-stats text-sm font-semibold block">{{popularPost.pageviews}} views</span>
     </li>

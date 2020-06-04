@@ -7,6 +7,7 @@
       </main>
       <Sidebar class="flex-sidebar min-w-0" />
     </section>
+    <Footer />
 
     <div id="second-nav" class="flex lg:hidden">
       <ul class="list-reset flex flex-row text-center">
@@ -19,7 +20,7 @@
         </li>
       </ul>
     </div>
-    <Footer />
+    <div class="lg:hidden" style="height:75px; background-color:white; "></div>
   </div>
 </template>
 
@@ -53,17 +54,17 @@
           {
             'name': 'About',
             'icon': 'info',
-            'to': '/about/'
+            'to': '/about'
           },
           {
             'name': 'Contact',
             'icon': 'email',
-            'to': '/contact/'
+            'to': '/contact'
           },
           {
             'name': 'Popular',
             'icon': 'favorite',
-            'to': '/popular/'
+            'to': '/popular'
           },
         ]
       }
@@ -82,7 +83,7 @@
   #second-nav {
     background: #424851;
     color: #fff;
-    padding: 1.250em;
+    padding: 0.25em;
     bottom: 0;
     left: 0;
     right: 0;

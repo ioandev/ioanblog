@@ -1,6 +1,6 @@
 <template>
   <Container :isOnly="isOnly" :thumbnail="thumbnail" :thumbnailCaption="thumbnailCaption" :contentJson="blogArticleJson"
-    extraClass="container">
+    :extraClass="isOnly ? 'container' : ''">
     <template v-slot:header>
       <h2 v-if="!isOnly" class="text-6xl font-black leading-15">
         <nuxt-link :to="generateUri(blogArticle.slug)">

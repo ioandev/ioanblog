@@ -27,8 +27,12 @@ module.exports = {
     },],
   },
   optimization: {
-    minimize: false,
+    minimize: true,
   },
+
+  serverMiddleware: [
+    '~/api/v1/index.js'
+  ],
 
   generate: {
     minify: false
@@ -105,11 +109,10 @@ module.exports = {
     ** You can extend webpack config here
     */
     extend(config, ctx) {
-      config.optimization.minimize = false;
-
       // to transform link with <nuxt-link> for the htmlSerializer
       config.resolve.alias['vue'] = 'vue/dist/vue.common'
       if (ctx.isDev) {
+        config.optimization.minimize = false;
         config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     },
@@ -135,6 +138,10 @@ module.exports = {
   generate: {
     fallback: '404.html' // Netlify reads a 404.html, Nuxt will load as an SPA
   },
+
+  router: {
+    trailingSlash: false
+  }
 
   //server: {
   //  port: 12345,

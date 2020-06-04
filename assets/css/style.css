@@ -107,6 +107,12 @@ code {
   background: url("/assets/img/avatar_wide.jpg") no-repeat;
   height: 195px;
   width: 343px;
+  width: 260px;
+  /* by default */
+}
+
+#main-header #avatar {
+  width: 343px;
   position: absolute;
   right: 122px;
   bottom: -6px;
@@ -119,7 +125,6 @@ code {
   width: 343px;
   border-bottom: none;
 }
-
 
 
 
