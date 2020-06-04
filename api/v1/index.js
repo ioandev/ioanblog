@@ -21,7 +21,7 @@ app.post('/newsletter/subscribe', async (req, res) => {
   }
 
   try {
-    const url = process.env.NEWSLETTER_URL + "/api/newsletter/subscribe"
+    const url = "http://127.0.0.1:4178" + "/api/newsletter/subscribe"
     console.log(`POSTing to ${url}`)
 
     const response = await axios.post(url, {

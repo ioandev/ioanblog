@@ -39,7 +39,7 @@
         return {}
       }
       try {
-        const url = process.env.NEWSLETTER_URL + "/api/newsletter/confirm"
+        const url = "http://127.0.0.1:4178" + "/api/newsletter/confirm"
         console.log(url)
         let response = await $axios.get(url, {
           thumbprint: params.thumbprint
