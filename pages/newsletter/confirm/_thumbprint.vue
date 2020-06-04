@@ -42,7 +42,9 @@
         const url = "http://127.0.0.1:4178" + "/api/newsletter/confirm"
         console.log(url)
         let response = await $axios.get(url, {
-          thumbprint: params.thumbprint
+          params: {
+            thumbprint: params.thumbprint
+          }
         })
         console.log(response)
       } catch (e) {
