@@ -84,7 +84,7 @@
           return;
         }
         try {
-          let response = await this.$axios.post("/api/newsletter/subscribe", {
+          let response = await this.$axios.post("https://ioan.blog/api/newsletter/subscribe", {
             name: this.name,
             email: this.email
           })
