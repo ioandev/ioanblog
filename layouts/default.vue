@@ -66,6 +66,11 @@
             'icon': 'favorite',
             'to': '/popular'
           },
+          {
+            'name': 'Newsletter',
+            'icon': 'email',
+            'to': '/newsletter'
+          },
         ]
       }
     },
