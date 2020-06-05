@@ -71,6 +71,18 @@
     border: 1px solid #ccc;
   }
 
+  .container-ioan .content_html h2 {
+    line-height: 1.2em;
+    font-size: 3.2em;
+    margin: 20px 0px;
+  }
+
+  .container-ioan .content_html h3 {
+    line-height: 1.2em;
+    font-size: 2.4em;
+    margin: 20px 0px;
+  }
+
   .container-ioan {
     background-color: white;
   }

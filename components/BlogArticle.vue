@@ -46,7 +46,7 @@
     },
     methods: {
       generateUri(uid) {
-        return `/${uid}/`
+        return `/${uid}`
       },
       getThumbnail() {
         let blogArticle = this.blogArticle
