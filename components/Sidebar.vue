@@ -2,15 +2,17 @@
   <aside id="secondary" class="widget-area hidden md:block" role="complementary">
     <section id="text-2" class="widget widget_text border-b-1 border-gray-400 px-6 py-8 pb-1">
       <h2 class="text-xl border-b-2 border-gray-300 font-thin">ioan</h2>
-      <div class="textwidget">
-        <p class="py-2">I'm Ioan Biticu and I'm a software developer.</p>
-        <p class="py-2">Check out my youtube channel at /ioanb7.</p>
+      <div class="textwidget space-y-4 py-2">
+        <p>I love creating websites that make an impact in people's lives.</p>
+        <p><a href="https://nextview.dev" target="_blank" class="bg-blue-700 text-white py-4 px-2 block text-center">Check out Next View</a></p>
       </div>
     </section>
+    <!--
     <section class="widget border-b-1 border-gray-400 px-6 py-8 pb-1">
       <h2 class="text-xl border-b-2 border-gray-300 font-thin">Newsletter</h2>
       <NewsletterForm />
     </section>
+    -->
     <section class="widget popular-posts border-b-1 border-gray-400 px-6 py-8 pb-1">
       <h2 class="text-xl border-b-2 border-gray-300 font-thin">Popular posts</h2>
       <PopularPosts />

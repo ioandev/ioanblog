@@ -11,7 +11,7 @@
       </masonry>
 
       <template v-for="(post, index) in posts" slot="placeholder">
-        <div class="" :key="index + 'xxx2'">
+        <div class="" :key="index + '-index-blog-post'">
           <BlogArticle :blogArticle="post" />
         </div>
       </template>
@@ -43,11 +43,6 @@
       }
     },
     mounted() {
-      //console.log("Mounted!")
-      //debugger; // eslint-disable-line
-      //this.$nuxt.$loading.end()
-      //debugger
-      //this.setLoading(false)
       this.$nuxt.$store.commit("setLoading", false)
     },
     computed: {

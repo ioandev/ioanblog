@@ -27,10 +27,10 @@
         <nav id="main-nav" class="hidden lg:block">
           <nuxt-link to="/"><svg>
               <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Home</nuxt-link>
-          <nuxt-link to="/about"><svg>
-              <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>About</nuxt-link>
-          <nuxt-link to="/contact"><svg>
-              <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Contact</nuxt-link>
+          <a href="https://ioan.dev/" target="_blank"><svg>
+              <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>About</a>
+          <a href="https://nextview.dev" target="_blank"><svg>
+              <rect x="0" y="0" fill="none" width="100%" height="100%" /></svg>Next View</a>
         </nav><!-- #site-navigation -->
       </header>
       <header id="alternative-header" class="block md:hidden">

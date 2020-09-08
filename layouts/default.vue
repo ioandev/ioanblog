@@ -12,11 +12,16 @@
     <div id="second-nav" class="flex lg:hidden">
       <ul class="list-reset flex flex-row text-center">
         <li class="mr-3 flex-1" v-for="link in links" :key="link.name">
-          <nuxt-link :to="link.to"
+          <nuxt-link v-if="link.to" :to="link.to"
             class="block py-1 md:py-3 pl-1 align-middle text-grey-darkest no-underline hover:text-pink border-b-2 border-grey-darkest md:border-black hover:border-pink">
             <i class="material-icons pr-0">{{link.icon}}</i>
             <span class="pb-1 md:pb-0 text-xs text-grey-dark block">{{link.name}}</span>
           </nuxt-link>
+          <a v-if="link.href" :href="link.href" target="_blank"
+            class="block py-1 md:py-3 pl-1 align-middle text-grey-darkest no-underline hover:text-pink border-b-2 border-grey-darkest md:border-black hover:border-pink">
+            <i class="material-icons pr-0">{{link.icon}}</i>
+            <span class="pb-1 md:pb-0 text-xs text-grey-dark block">{{link.name}}</span>
+          </a>
         </li>
       </ul>
     </div>
@@ -54,12 +59,12 @@
           {
             'name': 'About',
             'icon': 'info',
-            'to': '/about'
+            'href': 'https://ioan.dev'
           },
           {
             'name': 'Contact',
             'icon': 'email',
-            'to': '/contact'
+            'href': 'https://ioan.dev'
           },
           {
             'name': 'Popular',
@@ -67,9 +72,9 @@
             'to': '/popular'
           },
           {
-            'name': 'Newsletter',
-            'icon': 'email',
-            'to': '/newsletter'
+            'name': 'Next View',
+            'icon': 'business',
+            'href': 'https://nextview.dev'
           },
         ]
       }
