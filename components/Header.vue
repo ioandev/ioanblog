@@ -18,7 +18,7 @@
           <div class="wrap">
             <div class="site-branding-text">
               <h1 class="site-title text-6xl tracking-tighter font-light -mb-4">ioan</h1>
-              <p class="site-description">ioan biticu&#039;s website</p>
+              <p class="site-description">ioan biticu's website</p>
             </div><!-- .site-branding-text -->
           </div><!-- .wrap -->
         </div><!-- .site-branding -->
