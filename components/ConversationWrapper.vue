@@ -29,6 +29,11 @@
       Container,
       Conversation
     },
+    mounted() {
+      const el = document.getElementById('continue');
+      if (el == null) return;
+      el.scrollIntoView({behavior: "smooth"});
+    }
   }
 </script>
 
