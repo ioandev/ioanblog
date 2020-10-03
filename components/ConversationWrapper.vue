@@ -30,9 +30,11 @@
       Conversation
     },
     mounted() {
-      const el = document.getElementById('continue');
-      if (el == null) return;
-      el.scrollIntoView({behavior: "smooth"});
+      if (location.hash != "" && location.hash != undefined && location.hash.length > 1) {
+        const el = document.getElementById(location.hash.substr(1));
+        if (el == null) return;
+        el.scrollIntoView({behavior: "smooth"});
+      }
     }
   }
 </script>
