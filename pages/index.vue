@@ -3,29 +3,36 @@
     <client-only>
       <masonry :cols="{default: 4, 2500: 3, 2000: 2, 1300: 1}" :gutter="{default: '0x', 700: '0px'}"
         columnClass="masonry-column">
-        <template v-for="(post, index) in posts">
+        <template v-for="(smth, index) in all">
           <div class="" :key="index">
-            <BlogArticle :blogArticle="post" />
+            <BlogArticle v-if="smth.type == 'blog'" :blogArticle="smth.content" />
+            <div v-else>
+              <ConversationWrapper :contents="smth.content" :few="true" />
+            </div>
           </div>
         </template>
-      </masonry>
 
+      </masonry>
+<!--
       <template v-for="(post, index) in posts" slot="placeholder">
         <div class="" :key="index + '-index-blog-post'">
           <BlogArticle :blogArticle="post" />
         </div>
       </template>
+      -->
     </client-only>
-    <p v-if="posts.length == 0">There is an issue trying to connect to the server.</p> <!-- TODO: style this. -->
+    <p v-if="all && all.length == 0">There is an issue trying to connect to the server.</p> <!-- TODO: style this. -->
   </div>
 </template>
 
-<script lang="ts">
+<script>
   import {
     mapGetters,
     mapMutations
   } from 'vuex'
   import BlogArticle from '~/components/BlogArticle.vue'
+  import ConversationWrapper from '~/components/ConversationWrapper'
+  import moment from 'moment'
   import axios from 'axios'
   import Vue from 'vue'
   export default Vue.extend({
@@ -33,6 +40,7 @@
     layout: 'homepage',
     components: {
       BlogArticle,
+      ConversationWrapper,
     },
     head() {
       return {
@@ -47,8 +55,29 @@
     },
     computed: {
       ...mapGetters(['allPosts']),
-      posts() {
-        return this.allPosts.filter((post: any) => post.isPost)
+      ...mapGetters(['allConversations']),
+      all() {
+        const posts = this.allPosts.filter((post) => post.isPost)
+        const conversations = this.allConversations
+
+        let combined = [...posts, ...conversations]
+        let combinedSorted = combined.sort((a, b) => {
+          return !moment(a.created_at).isAfter(b.created_at) ? 1 : -1
+        })
+
+        let combinedAndWithType = combinedSorted.map(x => {
+          let foundOne = conversations.some((item) =>{
+            return x.uri != undefined && item.uri == x.uri
+          });
+
+          return {
+            content: x,
+            type: foundOne ? 'conversation' : 'blog'
+          }
+        })
+
+        return combinedAndWithType
+
       }
     },
     async asyncData({

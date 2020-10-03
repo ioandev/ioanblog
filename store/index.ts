@@ -1,6 +1,6 @@
 
 import { GetterTree, ActionTree, MutationTree } from 'vuex'
-import {WordpressState, Wordpress, PopularPost, Post} from './types'
+import {WordpressState, Wordpress, PopularPost, Post, Conversation} from './types'
 import axios from 'axios';
 
 export const state = () => ({
@@ -20,7 +20,8 @@ export const actions: ActionTree<WordpressState, RootState> = {
         url: process.env.PROXY_URL})
       let payload: Wordpress = response && response.data;
       commit('wordpressLoaded', payload);
-    }catch(error) {
+    }
+    catch(error) {
       $sentry.captureException(error)
       console.log("An error has occured getting the posts.");
       commit('wordpressError');
@@ -33,6 +34,11 @@ export const getters: GetterTree<WordpressState, RootState> = {
         const { wordpress } = state;
         const allPosts = (wordpress && wordpress.posts) || [];
         return allPosts
+    },
+    allConversations(state): readonly Conversation[] {
+        const { wordpress } = state;
+        const allConversations2 = (wordpress && wordpress.conversations) || [];
+        return allConversations2
     },
     popularPosts(state): readonly PopularPost[] {
         const { wordpress } = state;

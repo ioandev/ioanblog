@@ -18,6 +18,7 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,800' }
     ],
     bodyAttrs: {
       class: ''
@@ -61,6 +62,9 @@ module.exports = {
   }, {
     src: '~/plugins/vue-cookie-law',
     ssr: false
+  }, {
+    src: '~/plugins/vue-linkify',
+    ssr: false
   }],
   /*
   ** Nuxt.js dev-modules
@@ -72,7 +76,8 @@ module.exports = {
     '@nuxtjs/tailwindcss',
     ['@nuxtjs/google-analytics', {
       id: 'UA-168116512-1' //process.env.GOOGLE_ANALYTICS_ID
-    }]
+    }],
+    '@nuxtjs/moment',
   ],
   /*
   ** Nuxt.js modules
@@ -83,7 +88,11 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/sentry',
-    'nuxt-material-design-icons'
+    'nuxt-material-design-icons',
+    ['nuxt-lazy-load', {
+      directiveOnly: true,
+      defaultImage: '/images/default-image.png',
+    }]
   ],
 
   sentry: {

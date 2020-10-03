@@ -1,6 +1,7 @@
 export interface Wordpress {
     posts:        readonly Post[];
     popularPosts: readonly PopularPost[];
+    conversations: readonly Conversation[];
 }
 
 export interface PopularPost {
@@ -51,3 +52,38 @@ export interface WordpressState {
 }
 
 
+
+
+
+// conversations..
+export interface Data {
+    text: string;
+    img: string;
+}
+
+export interface Meta {
+    me: boolean;
+    showTime: boolean;
+    showDate: boolean;
+    showName: boolean;
+    didSpeakerChange: boolean;
+    isLink: boolean;
+    name: string;
+}
+
+export interface Message {
+    id: number;
+    time: Date;
+    data: Data;
+    meta: Meta;
+}
+
+export interface Conversation {
+    messages: Message[];
+    title: string;
+    uri: string;
+    description: string;
+    at: Date;
+    cutOffAfterNthLine: number;
+    public: boolean;
+}

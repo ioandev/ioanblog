@@ -1,5 +1,8 @@
 <template>
-  <BlogArticle :blogArticle="post" :isOnly="true" />
+  <div class="mb-0 md:mb-20">
+    <BlogArticle v-if="isPost" :blogArticle="post" :isOnly="true" />
+    <ConversationWrapper v-else :contents="conversation" :few="false" />
+  </div>
 </template>
 
 <script>
@@ -8,22 +11,25 @@
     mapMutations
   } from 'vuex'
   import BlogArticle from '~/components/BlogArticle.vue'
+  import ConversationWrapper from '~/components/ConversationWrapper'
   export default {
     name: 'PostSlug',
     //manual: true,
     components: {
       BlogArticle,
+      ConversationWrapper
     },
     head() {
       return {
-        title: this.post.title + ' - ioan',
+        title: (this.post ? (this.post.title) : (this.conversation.title)) + ' - ioan',
         bodyAttrs: {
           class: 'page'
         },
       }
     },
     computed: {
-      ...mapGetters(['allPosts']),
+      ...mapGetters(['allPosts', 'allConversations']),
+
     },
     //validate: (asd) => {
     //debugger; // eslint-disable-line
@@ -35,7 +41,11 @@
       //this.$nuxt.$loading.end()
       //debugger
       //this.setLoading(false)
-      this.$nuxt.$store.commit('setPageType', this.post.isPost ? 'post' : 'page')
+      if (this.post != null) {
+        this.$nuxt.$store.commit('setPageType', this.post.isPost ? 'post' : 'page')
+      } else {
+        this.$nuxt.$store.commit('setPageType', 'conversation')
+      }
       this.$nuxt.$store.commit("setLoading", false)
     },
     async asyncData({
@@ -53,10 +63,24 @@
           }
         })
 
-        if (thisPost == null) throw "Not found"
+        let thisConversation = null
+
+        if (thisPost == null) {
+          store.getters.allConversations.forEach(result => {
+            if ((result.uri + "") == params.slug) {
+              thisConversation = result
+            }
+          })
+        }
+
+        if (thisPost == null && thisConversation == null) {
+          throw "Not found"
+        }
 
         return {
           post: thisPost,
+          conversation: thisConversation,
+          isPost: thisPost != null
         }
       } catch (e) {
         console.error(e)
