@@ -20,7 +20,7 @@
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "html-to-text": "^5.1.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^3.4.3",
     "nuxt-material-design-icons": "^1.0.4",
     "prismjs": "^1.20.0",
     "vue-client-only": "^2.0.0",
